@@ -1,0 +1,121 @@
+﻿@page
+@model Electric__.Pages.User.UserLoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout"; 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+  /*
+       body {
+             background-color: #f4f6f9;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100vh;
+             margin: 0;
+         }      
+  */  
+        .form-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-container h3 {
+            color: #2193b0;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 8px;
+        }
+
+        .btn {
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #2193b0;
+            border-color: #2193b0;
+        }
+
+        .btn-primary:hover {
+            background-color: #1b7a8a;
+            border-color: #1b7a8a;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .alert-danger {
+            color: red;
+            margin-top: 15px;
+        }
+
+        .login-footer {
+            font-size: 14px;
+            color: #2193b0;
+            text-decoration: none;
+        }
+
+        .login-footer:hover {
+            color: #1b7a8a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h3>Login</h3>
+
+        @if (!ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                Invalid login attempt. Please check your email and password.
+            </div>
+        }
+
+        <form method="post" asp-page-handler="Login">
+            <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="loginEmail" name="LoginEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" name="LoginPassword" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+
+        <p class="footer-text mt-3">
+            Don't have an account? <a href="/User/UserResister" class="login-footer">Register here</a>
+        </p>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

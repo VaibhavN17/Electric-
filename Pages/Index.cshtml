@@ -1,0 +1,91 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+         /* Custom styles for the page */
+        body {
+             font-family: Arial, sans-serif;
+             background-color: #f8f9fa;
+             text-align: center;
+             margin: 0;
+         }
+
+         h1 {
+             margin-top: 20px;
+             color: #333;
+         }
+
+         .image-container {
+             display: flex;
+             justify-content: center;
+             gap: 30px;
+             margin-top: 50px;
+         }
+
+         .image-box {
+             border: 2px solid #ddd;
+             border-radius: 10px;
+             overflow: hidden;
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+             cursor: pointer;
+             max-width: 250px;
+         }
+
+         .image-box:hover {
+             transform: scale(1.05);
+             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+         }
+
+         .image-box img {
+             width: 100%;
+             height: auto;
+         }
+
+         .image-box h3 {
+             background-color: #007bff;
+             color: white;
+             margin: 0;
+             padding: 10px;
+             font-size: 1.2rem;
+         }
+     </style>
+</head>
+<body>
+    <h1>Welcome to Electric++</h1>
+    <p>Select your role to continue:</p>
+
+    <!-- Image Containers -->
+    <div class="image-container">
+        <!-- Admin Image -->
+        <a asp-page="/Admin/Dashboard" class="image-box">
+            <img src="~/images/Admin.jpg" alt="Admin" />
+            <h3>Admin</h3>
+        </a>
+
+        <!-- User Image -->
+        <a asp-page="/User/UserLogin" class="image-box">
+            <img src="~/images/User.jpg" alt="User" />
+            <h3>User</h3>
+        </a>
+
+        <!-- Viewer Image -->
+        <a asp-page="/Viewer/Dashboard" class="image-box">
+            <img src="~/images/Admin.jpg" alt="Viewer" />
+            <h3>Viewer</h3>
+        </a>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
